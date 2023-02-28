@@ -58,8 +58,45 @@ var Ejercicios3 = /** @class */ (function () {
         }
         alert('todos los estudiantes deben pagar la suma de ' + total + ' Euros' + '\nla renta del autobus es de 4000 y cada estudiante pagara ' + (4000 / estudiantes));
     };
+    Ejercicios3.prototype.ejercicio3 = function () {
+        var paquete1 = 1;
+        var paquete2 = .80;
+        var paquete3 = .70;
+        var minutosExtra = 0;
+        var cobrollamada = 0;
+        var minutosllamada = 0;
+        var cobroTotal = 0;
+        var dia = 'domingo';
+        var turno = 'tarde';
+        minutosllamada = Number(prompt('Total de minutos de llama'));
+        if (minutosllamada <= 5) {
+            cobrollamada = paquete1;
+        }
+        if (minutosllamada >= 6 && minutosllamada <= 8) {
+            cobrollamada = paquete1 + paquete2;
+        }
+        if (minutosllamada >= 9 && minutosllamada < 10) {
+            cobrollamada = paquete1 + paquete2 + paquete3;
+        }
+        if (minutosllamada > 10) {
+            cobroTotal = (minutosExtra * .50) + (paquete1 + paquete2 + paquete3);
+        }
+        if (dia != 'domingo') {
+            if (turno != 'tarde') {
+                cobroTotal = cobrollamada + (cobrollamada * 0.15);
+            }
+            else {
+                cobroTotal = cobrollamada + (cobrollamada * 0.10);
+            }
+        }
+        else {
+            cobroTotal = cobrollamada + (cobrollamada * 0.03);
+        }
+        console.log('costo total de tu llamada es ' + cobroTotal);
+    };
     return Ejercicios3;
 }());
 var objeto = new Ejercicios3();
 //objeto.ejercicio1();
-objeto.Ejercicio2();
+//objeto.Ejercicio2();
+objeto.ejercicio3();

@@ -56,7 +56,43 @@ class Ejercicios3{
         alert('todos los estudiantes deben pagar la suma de ' + total + ' Euros' + '\nla renta del autobus es de 4000 y cada estudiante pagara ' + (4000/estudiantes));
 
     }
+    public ejercicio3(){
+        let paquete1 : number =1;
+        let paquete2 : number =.80;
+        let paquete3 : number =.70;
+        let minutosExtra: number =0;
+        let cobrollamada : number =0;
+        let minutosllamada:number =0;
+        let cobroTotal: number =0;
+        let dia: string = 'domingo';
+        let turno:string = 'tarde';
+        minutosllamada = Number(prompt('Total de minutos de llama'));
+        if (minutosllamada<=5) {
+            cobrollamada=paquete1;
+        }
+        if (minutosllamada>=6 && minutosllamada<=8) {
+            cobrollamada=paquete1+paquete2;
+        }
+        if (minutosllamada>=9 && minutosllamada<10) {
+            cobrollamada=paquete1+paquete2+paquete3;
+        }
+        if (minutosllamada>10) {
+        cobroTotal=(minutosExtra*.50)+(paquete1+paquete2+paquete3);
+        }
+        if (dia !='domingo') {
+            if (turno!='tarde') {
+                cobroTotal=cobrollamada+(cobrollamada*0.15);
+            } else {
+                cobroTotal=cobrollamada+(cobrollamada*0.10);
+            }
+        } else {
+            cobroTotal=cobrollamada+(cobrollamada*0.03);
+        }
+        console.log('costo total de tu llamada es ' + cobroTotal);
+    }
+    
 }
 let objeto = new Ejercicios3();
 //objeto.ejercicio1();
-objeto.Ejercicio2();
+//objeto.Ejercicio2();
+objeto.ejercicio3();
